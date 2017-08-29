@@ -1,11 +1,10 @@
-# Empty template project with React, Redux, TypeScript and Webpack
+# An example visualization app built with React, Redux, D3 and TypeScript
 
-This has been influenced by [create-react-app](https://github.com/facebookincubator/create-react-app)
-and Lucify's own visualisation projects.
+Example code to be read alongside [TODO]
 
 ## Development
 
-Requires Node 6 or greater and `yarn`.
+Requires Node 7 or greater and `yarn`.
 
 Set up the development environment with:
 ```shell
@@ -18,30 +17,3 @@ yarn start
 ```
 
 Then open http://localhost:3000 in your web browser.
-
-
-## Building deployment distributions
-
-All the following build commands should be executed in the project root folder.
-
-Build a *production* distribution into `dist` with:
-```shell
-NODE_ENV=production yarn run build
-```
-
-Build a *staging* distribution into `dist` with:
-```shell
-NODE_ENV=staging yarn run build
-```
-
-You can test a distribution by:
-```shell
-cd dist
-ws
-```
-
-This will start a light-weight local server at [http://localhost:8000](http://localhost:8000).
-To use the `ws` command, you need to install `local-web-server`
-```shell
-yarn add global local-web-server
-```
