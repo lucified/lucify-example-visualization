@@ -3,10 +3,11 @@ import { connect } from 'react-redux';
 
 import { setDataType } from '../../actions';
 import { getSelectedType } from '../../selectors';
+import { DataType } from '../../types';
 import * as styles from './index.scss';
 
 interface PassedProps {
-  types: string[];
+  types: DataType[];
 }
 
 interface StateProps {
@@ -41,7 +42,7 @@ export default connect<StateProps, DispatchProps, PassedProps>(
   state => ({ selectedType: getSelectedType(state) }),
   dispatch => ({
     handleChange: (e: React.ChangeEvent<HTMLInputElement>) => {
-      dispatch(setDataType(e.currentTarget.value));
+      dispatch(setDataType(e.currentTarget.value as DataType));
     },
   }),
 )(DataTypePicker);

@@ -1,6 +1,8 @@
+import { DataType } from '../types';
+
 export interface SetTypeAction {
   type: 'SET_TYPE';
-  payload: string;
+  payload: DataType;
 }
 
 export interface ResetTypeAction {
