@@ -2,14 +2,11 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 
 import { setYear } from '../../actions';
-import { getSelectedYear } from '../../selectors';
+import { getSelectedYear, getYears } from '../../selectors';
 import * as styles from './index.scss';
 
-interface PassedProps {
-  years: string[];
-}
-
 interface StateProps {
+  years: string[];
   selectedYear: string;
 }
 
@@ -17,7 +14,7 @@ interface DispatchProps {
   handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-type Props = StateProps & DispatchProps & PassedProps;
+type Props = StateProps & DispatchProps;
 
 function DataTypePicker({ selectedYear, handleChange, years }: Props) {
   return (
@@ -37,8 +34,11 @@ function DataTypePicker({ selectedYear, handleChange, years }: Props) {
   );
 }
 
-export default connect<StateProps, DispatchProps, PassedProps>(
-  state => ({ selectedYear: getSelectedYear(state) }),
+export default connect(
+  state => ({
+    selectedYear: getSelectedYear(state),
+    years: getYears(state),
+  }),
   dispatch => ({
     handleChange: (e: React.ChangeEvent<HTMLInputElement>) => {
       dispatch(setYear(e.currentTarget.value));
