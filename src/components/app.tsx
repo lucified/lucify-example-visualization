@@ -46,3 +46,4 @@ export default compose(
     barChartData: getSelectedDataForChart(state),
   })),
 )(App) as React.StatelessComponent;
+// FIXME: We need this case because Dimensions() breaks typings
