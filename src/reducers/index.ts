@@ -1,24 +1,27 @@
 import { combineReducers } from 'redux';
 
 import { Action } from '../actions';
-import { StateTree } from './types';
+import { DataTree, SelectionsTree, StateTree } from './types';
 
 export const initialState: StateTree = {
   data: require('../../data/data.json'),
-  selections: { type: '2017' },
+  selections: { year: '2017' },
 };
 
-function dataReducer(state = initialState.data, _action: Action) {
+function dataReducer(state = initialState.data, _action: Action): DataTree {
   return state;
 }
 
-function selectionsReducer(state = initialState.selections, action: Action) {
+function selectionsReducer(
+  state = initialState.selections,
+  action: Action,
+): SelectionsTree {
   switch (action.type) {
-    case 'SET_TYPE':
+    case 'SET_YEAR':
       return {
-        type: action.payload,
+        year: action.year,
       };
-    case 'RESET_TYPE':
+    case 'RESET_YEAR':
       return initialState.selections;
   }
 

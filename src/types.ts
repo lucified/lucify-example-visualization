@@ -1,1 +1,7 @@
-export type DataType = '2017' | '2016';
+export interface YearlyData {
+  year: string;
+  votes: {
+    yes: number;
+    no: number;
+  };
+}

@@ -3,7 +3,7 @@
   "rules": {
     "quotemark": [true, "single", "avoid-escape", "jsx-double"],
     "no-var-requires": false,
-    "jsx-alignment": true,
+    "jsx-alignment": false,
     "jsx-no-lambda": true,
     "jsx-no-multiline-js": false,
     "jsx-no-string-ref": true,

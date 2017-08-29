@@ -1,4 +1,4 @@
-import { DataType } from '../types';
+import { YearlyData } from '../types';
 
 export interface StateTree {
   data: DataTree;
@@ -6,16 +6,8 @@ export interface StateTree {
 }
 
 // Keys are of type DataType
-export interface DataTree {
-  2017: Votes;
-  2016: Votes;
-}
+export type DataTree = YearlyData[];
 
 export interface SelectionsTree {
-  type: DataType;
-}
-
-interface Votes {
-  yes: number;
-  no: number;
+  year: string;
 }

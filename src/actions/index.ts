@@ -1,10 +1,9 @@
-import { DataType } from '../types';
-import { SetTypeAction } from './types';
+import { SetYearAction } from './types';
 
-export function setDataType(type: DataType): SetTypeAction {
+export function setYear(year: string): SetYearAction {
   return {
-    type: 'SET_TYPE',
-    payload: type,
+    type: 'SET_YEAR',
+    year,
   };
 }
 

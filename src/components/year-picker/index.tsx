@@ -1,17 +1,16 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 
-import { setDataType } from '../../actions';
-import { getSelectedType } from '../../selectors';
-import { DataType } from '../../types';
+import { setYear } from '../../actions';
+import { getSelectedYear } from '../../selectors';
 import * as styles from './index.scss';
 
 interface PassedProps {
-  types: DataType[];
+  years: string[];
 }
 
 interface StateProps {
-  selectedType: string;
+  selectedYear: string;
 }
 
 interface DispatchProps {
@@ -20,18 +19,18 @@ interface DispatchProps {
 
 type Props = StateProps & DispatchProps & PassedProps;
 
-function DataTypePicker({ selectedType, handleChange, types }: Props) {
+function DataTypePicker({ selectedYear, handleChange, years }: Props) {
   return (
     <div className={styles.container}>
-      {types.map(type =>
-        <label key={type} className={styles.option}>
+      {years.map(year =>
+        <label key={year} className={styles.option}>
           <input
             type="radio"
-            value={type}
-            checked={selectedType === type}
+            value={year}
+            checked={selectedYear === year}
             onChange={handleChange}
           />
-          {type}
+          {year}
         </label>,
       )}
     </div>
@@ -39,10 +38,10 @@ function DataTypePicker({ selectedType, handleChange, types }: Props) {
 }
 
 export default connect<StateProps, DispatchProps, PassedProps>(
-  state => ({ selectedType: getSelectedType(state) }),
+  state => ({ selectedYear: getSelectedYear(state) }),
   dispatch => ({
     handleChange: (e: React.ChangeEvent<HTMLInputElement>) => {
-      dispatch(setDataType(e.currentTarget.value as DataType));
+      dispatch(setYear(e.currentTarget.value));
     },
   }),
 )(DataTypePicker);
