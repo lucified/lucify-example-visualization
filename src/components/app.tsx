@@ -29,7 +29,7 @@ class App extends React.Component<Props> {
     return (
       <div className={styles.root}>
         <div className={styles.header}>
-          <DataTypePicker />
+          <DataTypePicker types={['2016', '2017']} />
         </div>
         <div className={styles.content}>
           <BarChart data={data} width={Math.min(600, containerWidth)} />

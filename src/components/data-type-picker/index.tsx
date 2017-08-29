@@ -5,6 +5,10 @@ import { setDataType } from '../../actions';
 import { getSelectedType } from '../../selectors';
 import * as styles from './index.scss';
 
+interface PassedProps {
+  types: string[];
+}
+
 interface StateProps {
   selectedType: string;
 }
@@ -13,34 +17,27 @@ interface DispatchProps {
   handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-type Props = StateProps & DispatchProps;
+type Props = StateProps & DispatchProps & PassedProps;
 
-function DataTypePicker({ selectedType, handleChange }: Props) {
+function DataTypePicker({ selectedType, handleChange, types }: Props) {
   return (
     <div className={styles.container}>
-      <label className={styles.option}>
-        <input
-          type="radio"
-          value="2016"
-          checked={selectedType === '2016'}
-          onChange={handleChange}
-        />
-        2016
-      </label>
-      <label className={styles.option}>
-        <input
-          type="radio"
-          value="2017"
-          checked={selectedType === '2017'}
-          onChange={handleChange}
-        />
-        2017
-      </label>
+      {types.map(type =>
+        <label key={type} className={styles.option}>
+          <input
+            type="radio"
+            value={type}
+            checked={selectedType === type}
+            onChange={handleChange}
+          />
+          {type}
+        </label>,
+      )}
     </div>
   );
 }
 
-export default connect(
+export default connect<StateProps, DispatchProps, PassedProps>(
   state => ({ selectedType: getSelectedType(state) }),
   dispatch => ({
     handleChange: (e: React.ChangeEvent<HTMLInputElement>) => {
