@@ -4,8 +4,7 @@ import { compose } from 'redux';
 
 const Dimensions = require('react-dimensions');
 
-import { getAllData, getSelectedDataForChart } from '../selectors';
-import { YearlyData } from '../types';
+import { getSelectedDataForChart, getYears } from '../selectors';
 
 import BarChart, { BarChartDatum } from './bar-chart';
 import YearPicker from './year-picker';
@@ -18,17 +17,17 @@ interface DimensionsProps {
 }
 
 interface StateProps {
-  allData: YearlyData[];
+  years: string[];
   barChartData?: BarChartDatum[];
 }
 
 type Props = StateProps & DimensionsProps;
 
-function App({ allData, barChartData, containerWidth }: Props) {
+function App({ years, barChartData, containerWidth }: Props) {
   return (
     <div className={styles.root}>
       <div className={styles.header}>
-        <YearPicker years={allData.map(d => d.year)} />
+        <YearPicker years={years} />
       </div>
       <div className={styles.content}>
         {barChartData
@@ -45,7 +44,7 @@ function App({ allData, barChartData, containerWidth }: Props) {
 export default compose(
   Dimensions(),
   connect<StateProps, void, DimensionsProps>(state => ({
-    allData: getAllData(state),
+    years: getYears(state),
     barChartData: getSelectedDataForChart(state),
   })),
 )(App) as React.StatelessComponent;

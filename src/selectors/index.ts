@@ -24,3 +24,7 @@ export const getSelectedDataForChart = createSelector(
     );
   },
 );
+
+export const getYears = createSelector(getAllData, data =>
+  data.map(d => d.year),
+);
