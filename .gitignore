@@ -1,0 +1,9 @@
+node_modules
+/dist
+/lib
+.DS_Store
+.env
+.awcache
+npm-debug.log*
+*ignore.ts
+.didstash

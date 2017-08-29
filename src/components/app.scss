@@ -1,0 +1,34 @@
+@import './definitions.scss';
+
+body {
+  font-family: $fontFamily !important;
+}
+
+:global {
+  @import '~normalize.css/normalize';
+  @import url("https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700&amp;subset=latin-ext,cyrillic,latin");
+
+  #content {
+    height: 100%;
+  }
+}
+
+body {
+  height: 100%;
+  margin: 0;
+}
+
+.root {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+}
+
+.header {
+  flex: 0 1 auto;
+}
+
+.content {
+  flex: 1 1 auto;
+  position: relative;
+}

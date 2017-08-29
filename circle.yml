@@ -1,0 +1,18 @@
+machine:
+  node:
+    version: 7.8
+  environment:
+    PROJECT: $CIRCLE_PROJECT_REPONAME
+    BRANCH: $CIRCLE_BRANCH
+    COMMIT: $CIRCLE_SHA1
+    PATH: "${PATH}:${HOME}/${CIRCLE_PROJECT_REPONAME}/node_modules/.bin"
+
+dependencies:
+  override:
+    - yarn
+  cache_directories:
+    - ~/.cache/yarn
+
+test:
+  override:
+    - yarn run lint

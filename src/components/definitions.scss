@@ -1,0 +1,97 @@
+// FONT
+
+$bodyFontSize: 14; // in pixels
+$fontFamily: 'Open Sans', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+
+// BREAKPOINTS
+
+$mobileBreakpoint: 320px;
+$tabletBreakpoint: 768px;
+$computerBreakpoint: 992px;
+$largeMonitorBreakpoint: 1200px;
+$widescreenMonitorBreakpoint: 1920px;
+
+// COLOR VALUES
+
+// colors from design
+$color-red: #dd0035;
+$color-blue: #23408f;
+$color-cerise: #e6007e;
+$color-light-blue: #58addb;
+$color-light-gray: #cccccc;
+$color-gray: #6e7075;
+$color-lightest-gray: #6e7075; // TODO: fix
+$color-darkest-gray: #0b1328;
+
+$color-expand-border: $color-light-blue;
+
+$color-blue-darker: #000d5c;
+$color-gray-divider: $color-light-gray;
+
+$color-blue-chill: rgb(10, 135, 165);
+$color-blue-chill-darker: rgb(0, 84, 114);
+$color-hint-gray: #f9f8f8;
+$color-lightest-gray: #f7f6f6;
+$color-lighter-gray: #f0e9e9;
+$color-light-gray: #e5dddb;
+$color-gray: #999999;
+$color-dark-gray: #807775;
+$color-darker-gray: #292220;
+$color-lightest-gray-with-transparency: rgba($color-lightest-gray, 0.04);
+$color-lighter-red: #e19791;
+$color-dark-red: #930e03;
+
+// COMMON COLOR PRESETS
+
+$color-border: rgba(60, 30, 0, 0.12);
+$color-text: $color-darker-gray;
+$color-text-hover: black;
+$color-text-selection: $color-red;
+$color-text-menu: $color-dark-gray;
+
+$color-selection: white;
+$color-selection-active: white;
+
+// SIZE AND POSITION
+
+$border-radius: 2px;
+$border-width: 1px;
+$divider-width: 1px;
+
+@mixin mobile-only {
+  @media (max-width: 767px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$tabletBreakpoint}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$computerBreakpoint}) {
+    @content;
+  }
+}
+
+@mixin large-desktop {
+  @media (min-width: #{$largeMonitorBreakpoint}) {
+    @content;
+  }
+}
+
+// MISCELLANEOUS
+
+$golden: 61.803%;
+
+@mixin no-select() {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
