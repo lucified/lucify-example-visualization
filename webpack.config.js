@@ -141,8 +141,8 @@ const config = {
   },
   output: {
     filename: 'index-[hash].js',
-    path: path.resolve('/'),
-    publicPath: '/',
+    path: path.resolve('dist'),
+    publicPath: '',
   },
   entry: [require.resolve('babel-polyfill'), './src/index.tsx'],
   plugins: [
