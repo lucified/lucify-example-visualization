@@ -18,8 +18,8 @@ export const getSelectedDataForChart = createSelector(
 
     return (
       selectedData && [
-        { color: 'green', value: selectedData.votes.yes, id: 'yes' },
-        { color: 'red', value: selectedData.votes.no, id: 'no' },
+        { color: '#9cdf7b', value: selectedData.votes.yes, id: 'yes' },
+        { color: '#e7723f', value: selectedData.votes.no, id: 'no' },
       ]
     );
   },
