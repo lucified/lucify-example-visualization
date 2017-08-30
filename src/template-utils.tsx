@@ -86,7 +86,7 @@ export function contextToHelmet(webpackCompilation: any) {
   const assets = getAssets(webpackCompilation, webpackCompilation.chunks);
 
   return (
-    <Helmet defaultTitle="Visualisation">
+    <Helmet defaultTitle="Example visualization — Lucify">
       <html lang="en" />
       {assets.css.map((href: string) =>
         <link key={href} rel="stylesheet" href={href} />,
